@@ -35,25 +35,22 @@ public class MainActivity extends AppCompatActivity {
 // Prepare an Interstitial Ad Listener
         mInterstitialAd.setAdListener(new AdListener() {
             public void onAdLoaded() {
-                // Call displayInterstitial() function
+// Call displayInterstitial() function
                 displayInterstitial();
             }
         });
-//
+//  WebView
         mWebView = findViewById(R.id.activity_main_webview);
-
 // Enable Javascript
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 //
         mWebView.loadUrl("https://ephemeris.com.co/");
-
 // Force links and redirects to open in the WebView instead of in a browser
         mWebView.setWebViewClient(new WebViewClient());
     }
-
 //
-private void displayInterstitial() {
+public void displayInterstitial() {
 // If Ads are loaded, show Interstitial else show nothing.
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
@@ -68,5 +65,4 @@ private void displayInterstitial() {
             super.onBackPressed();
         }
     }
-
 }
